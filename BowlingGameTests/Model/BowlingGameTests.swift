@@ -42,6 +42,17 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(finalScore, 0, "Score of the game should have been 0.")
     }
 
+    func test_whenNormalGame_shouldReturnValidScore() {
+        //Arrange
+        self.makeNormalRounds(10, 6, 2)
+
+        //Act
+        let finalScore = self.sut.finalScore
+
+        //Assert
+        XCTAssertEqual(finalScore, 80, "Score of the game should have been matched with expected score.")
+    }
+
 }
 
 //MARK:- Stub helpers
