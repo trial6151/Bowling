@@ -127,6 +127,18 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(secondDelivery, storedSecondDelivery, "Stored delivery should have matched with round's delivery")
     }
 
+    func test_whenStrikeRoundCalled_shouldMaintainDelivery() {
+        //Arrange
+
+        //Act
+        XCTAssertNil(self.sut.deliveryAt(index: 0), "Should have no stored delivery in the begining.")
+        self.sut.strikeRound()
+
+        //Assert
+        let storedFirstDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 0))
+        XCTAssertEqual(10, storedFirstDelivery, "Stored delivery should have matched with round's delivery")
+    }
+
 }
 
 //MARK:- Stub helpers
