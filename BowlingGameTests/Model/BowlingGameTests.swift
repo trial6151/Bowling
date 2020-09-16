@@ -93,6 +93,18 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(finalScore, 46, "Score of the game should have been matched with expected score.")
     }
 
+    func test_whenAllStrikes_shouldReturnValidScore() {
+        //Arrange
+        self.makeStrikeRounds(10)
+        self.sut.bonusRound(10, 10)
+
+        //Act
+        let finalScore = self.sut.finalScore
+
+        //Assert
+        XCTAssertEqual(finalScore, 300, "Score of the game should have been matched with expected score.")
+    }
+
     func test_whenNormalRoundCalled_shouldMaintainDelivery() {
         //Arrange
         let firstDelivery = 3
