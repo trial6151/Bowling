@@ -25,10 +25,6 @@ class SpareRound: Round, Bonusable {
         return delivery
     }
 
-    var numberOfDeliveriesToCalculateBonus: Int {
-        1
-    }
-
     //MARK: - Private properties
 
     private let roundDeliveryStartIndex: Int

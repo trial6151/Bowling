@@ -23,6 +23,8 @@
 		ED1D294E2511F5F5006CBC28 /* MockBowlingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */; };
 		ED1D29502511F61E006CBC28 /* SpareRoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */; };
 		ED1D2952251218D6006CBC28 /* BonusRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D2951251218D6006CBC28 /* BonusRound.swift */; };
+		ED1D295425121DFA006CBC28 /* StrikeRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295325121DFA006CBC28 /* StrikeRound.swift */; };
+		ED1D295625121E26006CBC28 /* StrikeRoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295525121E26006CBC28 /* StrikeRoundTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockBowlingGame.swift; sourceTree = "<group>"; };
 		ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRoundTests.swift; sourceTree = "<group>"; };
 		ED1D2951251218D6006CBC28 /* BonusRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusRound.swift; sourceTree = "<group>"; };
+		ED1D295325121DFA006CBC28 /* StrikeRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeRound.swift; sourceTree = "<group>"; };
+		ED1D295525121E26006CBC28 /* StrikeRoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeRoundTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				ED1D293F25116485006CBC28 /* BowlingGame.swift */,
-				ED1D294025116485006CBC28 /* Round.swift */,
 				ED1D294125116485006CBC28 /* NormalRound.swift */,
 				ED1D29482511F4B8006CBC28 /* SpareRound.swift */,
+				ED1D295325121DFA006CBC28 /* StrikeRound.swift */,
 				ED1D2951251218D6006CBC28 /* BonusRound.swift */,
+				ED1D294025116485006CBC28 /* Round.swift */,
 				ED1D294A2511F4CE006CBC28 /* Bonusable.swift */,
 			);
 			path = Model;
@@ -138,6 +143,7 @@
 				ED1D29232511342D006CBC28 /* BowlingGameTests.swift */,
 				ED1D294525116499006CBC28 /* NormalRoundTests.swift */,
 				ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */,
+				ED1D295525121E26006CBC28 /* StrikeRoundTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 				ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */,
 				ED1D290F2511342B006CBC28 /* SceneDelegate.swift in Sources */,
 				ED1D2952251218D6006CBC28 /* BonusRound.swift in Sources */,
+				ED1D295425121DFA006CBC28 /* StrikeRound.swift in Sources */,
 				ED1D294425116485006CBC28 /* NormalRound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +278,7 @@
 				ED1D294E2511F5F5006CBC28 /* MockBowlingGame.swift in Sources */,
 				ED1D29502511F61E006CBC28 /* SpareRoundTests.swift in Sources */,
 				ED1D294625116499006CBC28 /* NormalRoundTests.swift in Sources */,
+				ED1D295625121E26006CBC28 /* StrikeRoundTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

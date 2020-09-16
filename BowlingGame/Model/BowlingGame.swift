@@ -36,6 +36,11 @@ class BowlingGame: BowlingGameProtocol {
         self.deliveries.append(secondDelivery)
     }
 
+    func strikeRound() {
+        self.rounds.append(StrikeRound(self.deliveries.count, bowlingGame: self))
+        self.deliveries.append(StrikeRound.strikeDefaultScore)
+    }
+
     func bonusRound(_ firstDelivery: Int,_ secondDelivery: Int?) {
         self.rounds.append(BonusRound(firstDelivery, secondDelivery))
         self.deliveries.append(firstDelivery)
