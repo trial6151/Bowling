@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED1D290D2511342B006CBC28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D290C2511342B006CBC28 /* AppDelegate.swift */; };
 		ED1D290F2511342B006CBC28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D290E2511342B006CBC28 /* SceneDelegate.swift */; };
-		ED1D29112511342B006CBC28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D29102511342B006CBC28 /* ViewController.swift */; };
+		ED1D29112511342B006CBC28 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D29102511342B006CBC28 /* HomeViewController.swift */; };
 		ED1D29142511342B006CBC28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1D29122511342B006CBC28 /* Main.storyboard */; };
 		ED1D29162511342D006CBC28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1D29152511342D006CBC28 /* Assets.xcassets */; };
 		ED1D29192511342D006CBC28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED1D29172511342D006CBC28 /* LaunchScreen.storyboard */; };
@@ -25,6 +25,10 @@
 		ED1D2952251218D6006CBC28 /* BonusRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D2951251218D6006CBC28 /* BonusRound.swift */; };
 		ED1D295425121DFA006CBC28 /* StrikeRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295325121DFA006CBC28 /* StrikeRound.swift */; };
 		ED1D295625121E26006CBC28 /* StrikeRoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295525121E26006CBC28 /* StrikeRoundTests.swift */; };
+		ED1D295925125EAA006CBC28 /* ScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295825125EAA006CBC28 /* ScoreCollectionViewCell.swift */; };
+		ED1D295B25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295A25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift */; };
+		ED1D295D25126280006CBC28 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295C25126280006CBC28 /* HomeViewModel.swift */; };
+		ED1D29612512ACF3006CBC28 /* HomeViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D29602512ACF3006CBC28 /* HomeViewModelTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +45,7 @@
 		ED1D29092511342B006CBC28 /* BowlingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED1D290C2511342B006CBC28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED1D290E2511342B006CBC28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ED1D29102511342B006CBC28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED1D29102511342B006CBC28 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ED1D29132511342B006CBC28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED1D29152511342D006CBC28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED1D29182511342D006CBC28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +64,10 @@
 		ED1D2951251218D6006CBC28 /* BonusRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusRound.swift; sourceTree = "<group>"; };
 		ED1D295325121DFA006CBC28 /* StrikeRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeRound.swift; sourceTree = "<group>"; };
 		ED1D295525121E26006CBC28 /* StrikeRoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeRoundTests.swift; sourceTree = "<group>"; };
+		ED1D295825125EAA006CBC28 /* ScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED1D295A25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		ED1D295C25126280006CBC28 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		ED1D29602512ACF3006CBC28 /* HomeViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +109,10 @@
 		ED1D290B2511342B006CBC28 /* BowlingGame */ = {
 			isa = PBXGroup;
 			children = (
+				ED1D295725125E4E006CBC28 /* Home */,
 				ED1D293E25116485006CBC28 /* Model */,
 				ED1D290C2511342B006CBC28 /* AppDelegate.swift */,
 				ED1D290E2511342B006CBC28 /* SceneDelegate.swift */,
-				ED1D29102511342B006CBC28 /* ViewController.swift */,
 				ED1D29122511342B006CBC28 /* Main.storyboard */,
 				ED1D29152511342D006CBC28 /* Assets.xcassets */,
 				ED1D29172511342D006CBC28 /* LaunchScreen.storyboard */,
@@ -116,6 +124,7 @@
 		ED1D29222511342D006CBC28 /* BowlingGameTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED1D295F2512ACD0006CBC28 /* Home */,
 				ED1D2947251164D5006CBC28 /* Model */,
 				ED1D29252511342D006CBC28 /* Info.plist */,
 			);
@@ -154,6 +163,25 @@
 				ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		ED1D295725125E4E006CBC28 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ED1D295C25126280006CBC28 /* HomeViewModel.swift */,
+				ED1D29102511342B006CBC28 /* HomeViewController.swift */,
+				ED1D295825125EAA006CBC28 /* ScoreCollectionViewCell.swift */,
+				ED1D295A25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ED1D295F2512ACD0006CBC28 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ED1D29602512ACF3006CBC28 /* HomeViewModelTestCase.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,12 +287,15 @@
 			files = (
 				ED1D29492511F4B8006CBC28 /* SpareRound.swift in Sources */,
 				ED1D294225116485006CBC28 /* BowlingGame.swift in Sources */,
-				ED1D29112511342B006CBC28 /* ViewController.swift in Sources */,
+				ED1D29112511342B006CBC28 /* HomeViewController.swift in Sources */,
 				ED1D290D2511342B006CBC28 /* AppDelegate.swift in Sources */,
+				ED1D295B25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift in Sources */,
 				ED1D294325116485006CBC28 /* Round.swift in Sources */,
 				ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */,
 				ED1D290F2511342B006CBC28 /* SceneDelegate.swift in Sources */,
+				ED1D295D25126280006CBC28 /* HomeViewModel.swift in Sources */,
 				ED1D2952251218D6006CBC28 /* BonusRound.swift in Sources */,
+				ED1D295925125EAA006CBC28 /* ScoreCollectionViewCell.swift in Sources */,
 				ED1D295425121DFA006CBC28 /* StrikeRound.swift in Sources */,
 				ED1D294425116485006CBC28 /* NormalRound.swift in Sources */,
 			);
@@ -275,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1D29242511342D006CBC28 /* BowlingGameTests.swift in Sources */,
+				ED1D29612512ACF3006CBC28 /* HomeViewModelTestCase.swift in Sources */,
 				ED1D294E2511F5F5006CBC28 /* MockBowlingGame.swift in Sources */,
 				ED1D29502511F61E006CBC28 /* SpareRoundTests.swift in Sources */,
 				ED1D294625116499006CBC28 /* NormalRoundTests.swift in Sources */,
