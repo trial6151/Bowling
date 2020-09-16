@@ -6,7 +6,14 @@
 import Foundation
 
 protocol BowlingGameProtocol: class {
+    var finalScore: Int { get }
+    func normalRound(_ firstRoll: Int,_ secondRoll: Int)
+    func spareRound(_ firstRoll: Int,_ secondRoll: Int)
+    func strikeRound()
+    func bonusRound(_ firstRoll: Int,_ secondRoll: Int?)
+    func getGamesFinalScore(rolls: [Int]) -> Int
     func rollAt(index: Int) -> Int?
+    @discardableResult func resetGame() -> Bool
 }
 
 class BowlingGame: BowlingGameProtocol {
