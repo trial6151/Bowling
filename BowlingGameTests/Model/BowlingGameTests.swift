@@ -186,5 +186,11 @@ private extension BowlingGameTests {
         }
     }
 
+    func makeStrikeRounds(_ count: Int) {
+        for _ in 0..<count {
+            self.sut.strikeRound()
+        }
+    }
+
 }
 
