@@ -36,6 +36,15 @@ class BowlingGame: BowlingGameProtocol {
         self.deliveries.append(secondDelivery)
     }
 
+    func bonusRound(_ firstDelivery: Int,_ secondDelivery: Int?) {
+        self.rounds.append(BonusRound(firstDelivery, secondDelivery))
+        self.deliveries.append(firstDelivery)
+
+        if let secondDelivery = secondDelivery {
+            self.deliveries.append(secondDelivery)
+        }
+    }
+
     func deliveryAt(index: Int) -> Int? {
         guard self.deliveries.indices.contains(index) else {
             return nil

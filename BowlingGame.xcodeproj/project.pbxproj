@@ -22,6 +22,7 @@
 		ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294A2511F4CE006CBC28 /* Bonusable.swift */; };
 		ED1D294E2511F5F5006CBC28 /* MockBowlingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */; };
 		ED1D29502511F61E006CBC28 /* SpareRoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */; };
+		ED1D2952251218D6006CBC28 /* BonusRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D2951251218D6006CBC28 /* BonusRound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		ED1D294A2511F4CE006CBC28 /* Bonusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonusable.swift; sourceTree = "<group>"; };
 		ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockBowlingGame.swift; sourceTree = "<group>"; };
 		ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRoundTests.swift; sourceTree = "<group>"; };
+		ED1D2951251218D6006CBC28 /* BonusRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonusRound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				ED1D294025116485006CBC28 /* Round.swift */,
 				ED1D294125116485006CBC28 /* NormalRound.swift */,
 				ED1D29482511F4B8006CBC28 /* SpareRound.swift */,
+				ED1D2951251218D6006CBC28 /* BonusRound.swift */,
 				ED1D294A2511F4CE006CBC28 /* Bonusable.swift */,
 			);
 			path = Model;
@@ -255,6 +258,7 @@
 				ED1D294325116485006CBC28 /* Round.swift in Sources */,
 				ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */,
 				ED1D290F2511342B006CBC28 /* SceneDelegate.swift in Sources */,
+				ED1D2952251218D6006CBC28 /* BonusRound.swift in Sources */,
 				ED1D294425116485006CBC28 /* NormalRound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

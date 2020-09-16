@@ -67,6 +67,18 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(finalScore, 88, "Score of the game should have been matched with expected score.")
     }
 
+    func test_whenAllSpares_shouldReturnValidScore() {
+        //Arrange
+        self.makeSpareRounds(10, 5, 5)
+        self.sut.bonusRound(5, nil)
+
+        //Act
+        let finalScore = self.sut.finalScore
+
+        //Assert
+        XCTAssertEqual(finalScore, 150, "Score of the game should have been matched with expected score.")
+    }
+
 }
 
 //MARK:- Stub helpers
@@ -76,6 +88,12 @@ private extension BowlingGameTests {
     func makeNormalRounds(_ count: Int,_ firstDelivery: Int,_ secondDelivery: Int) {
         for _ in 0..<count {
             self.sut.normalRound(firstDelivery, secondDelivery)
+        }
+    }
+
+    func makeSpareRounds(_ count: Int,_ firstDelivery: Int,_ secondDelivery: Int) {
+        for _ in 0..<count {
+            self.sut.spareRound(firstDelivery, secondDelivery)
         }
     }
 
