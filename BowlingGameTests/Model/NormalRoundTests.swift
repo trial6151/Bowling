@@ -8,12 +8,12 @@ import XCTest
 
 class NormalRoundTests: XCTestCase {
     var sut: NormalRound!
-    let firstDelivery = 4
-    let secondDelivery = 4
+    let firstRoll = 4
+    let secondRoll = 4
 
     override func setUp() {
         super.setUp()
-        self.sut = NormalRound(self.firstDelivery, self.secondDelivery)
+        self.sut = NormalRound(self.firstRoll, self.secondRoll)
     }
 
     override func tearDown() {
@@ -28,7 +28,7 @@ class NormalRoundTests: XCTestCase {
         let score = self.sut.score
 
         //Assert
-        XCTAssertEqual(score, self.firstDelivery + self.secondDelivery, "Score should have matched total of firstDelivery and secondDelivey")
+        XCTAssertEqual(score, self.firstRoll + self.secondRoll, "Score should have matched total of firstRoll and secondDelivey")
     }
 }
 

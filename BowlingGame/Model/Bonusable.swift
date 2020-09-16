@@ -7,11 +7,11 @@ import Foundation
 
 protocol Bonusable {
     var bonusScore: Int { get }
-    var numberOfDeliveriesToCalculateBonus: Int { get }
+    var numberOfRollsToCalculateBonus: Int { get }
 }
 
 extension Bonusable {
-    var numberOfDeliveriesToCalculateBonus: Int {
+    var numberOfRollsToCalculateBonus: Int {
         1
     }
 }

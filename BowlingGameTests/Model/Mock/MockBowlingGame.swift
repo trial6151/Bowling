@@ -7,9 +7,9 @@ import Foundation
 @testable import BowlingGame
 
 class MockBowlingGame: BowlingGameProtocol {
-    var delivery: Int?
+    var roll: Int?
 
-    func deliveryAt(index: Int) -> Int? {
-        self.delivery
+    func rollAt(index: Int) -> Int? {
+        self.roll
     }
 }

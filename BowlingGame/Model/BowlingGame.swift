@@ -6,7 +6,7 @@
 import Foundation
 
 protocol BowlingGameProtocol: class {
-    func deliveryAt(index: Int) -> Int?
+    func rollAt(index: Int) -> Int?
 }
 
 class BowlingGame: BowlingGameProtocol {
@@ -20,40 +20,40 @@ class BowlingGame: BowlingGameProtocol {
     //MARK: - Private properties
 
     private var rounds = [Round]()
-    private var deliveries = [Int]()
+    private var rolls = [Int]()
 
     //MARK: - Internal methods
 
-    func normalRound(_ firstDelivery: Int,_ secondDelivery: Int) {
-        self.rounds.append(NormalRound(firstDelivery, secondDelivery))
-        self.deliveries.append(firstDelivery)
-        self.deliveries.append(secondDelivery)
+    func normalRound(_ firstRoll: Int,_ secondRoll: Int) {
+        self.rounds.append(NormalRound(firstRoll, secondRoll))
+        self.rolls.append(firstRoll)
+        self.rolls.append(secondRoll)
     }
 
-    func spareRound(_ firstDelivery: Int,_ secondDelivery: Int) {
-        self.rounds.append(SpareRound(firstDelivery, secondDelivery, self.deliveries.count, bowlingGame: self))
-        self.deliveries.append(firstDelivery)
-        self.deliveries.append(secondDelivery)
+    func spareRound(_ firstRoll: Int,_ secondRoll: Int) {
+        self.rounds.append(SpareRound(firstRoll, secondRoll, self.rolls.count, bowlingGame: self))
+        self.rolls.append(firstRoll)
+        self.rolls.append(secondRoll)
     }
 
     func strikeRound() {
-        self.rounds.append(StrikeRound(self.deliveries.count, bowlingGame: self))
-        self.deliveries.append(StrikeRound.strikeDefaultScore)
+        self.rounds.append(StrikeRound(self.rolls.count, bowlingGame: self))
+        self.rolls.append(StrikeRound.strikeDefaultScore)
     }
 
-    func bonusRound(_ firstDelivery: Int,_ secondDelivery: Int?) {
-        self.rounds.append(BonusRound(firstDelivery, secondDelivery))
-        self.deliveries.append(firstDelivery)
+    func bonusRound(_ firstRoll: Int,_ secondRoll: Int?) {
+        self.rounds.append(BonusRound(firstRoll, secondRoll))
+        self.rolls.append(firstRoll)
 
-        if let secondDelivery = secondDelivery {
-            self.deliveries.append(secondDelivery)
+        if let secondRoll = secondRoll {
+            self.rolls.append(secondRoll)
         }
     }
 
-    func deliveryAt(index: Int) -> Int? {
-        guard self.deliveries.indices.contains(index) else {
+    func rollAt(index: Int) -> Int? {
+        guard self.rolls.indices.contains(index) else {
             return nil
         }
-        return self.deliveries[index]
+        return self.rolls[index]
     }
 }

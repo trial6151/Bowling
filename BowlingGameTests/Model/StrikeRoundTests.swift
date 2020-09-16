@@ -25,7 +25,7 @@ class StrikeRoundTests: XCTestCase {
     func test_hasValidScore() {
         //Arrange
         let bonusScore = 4
-        self.mockBowlingGame.delivery = bonusScore
+        self.mockBowlingGame.roll = bonusScore
 
         //Act
         let score = self.sut.score

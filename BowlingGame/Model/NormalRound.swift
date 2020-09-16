@@ -10,19 +10,19 @@ class NormalRound: Round {
     //MARK: - Internal properties
 
     var score: Int {
-        self.firstDelivery + self.secondDelivery
+        self.firstRoll + self.secondRoll
     }
 
     //MARK: - Private properties
 
-    private let firstDelivery: Int
-    private let secondDelivery: Int
+    private let firstRoll: Int
+    private let secondRoll: Int
 
     //MARK: - Initializer
 
-    init(_ firstDelivery: Int, _ secondDelivery: Int) {
-        self.firstDelivery = firstDelivery
-        self.secondDelivery = secondDelivery
+    init(_ firstRoll: Int, _ secondRoll: Int) {
+        self.firstRoll = firstRoll
+        self.secondRoll = secondRoll
     }
 
 }

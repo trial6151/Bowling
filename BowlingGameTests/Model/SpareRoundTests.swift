@@ -9,13 +9,13 @@ import XCTest
 class SpareRoundTests: XCTestCase {
     var sut: SpareRound!
     var mockBowlingGame: MockBowlingGame!
-    let firstDelivery = 4
-    let secondDelivery = 5
+    let firstRoll = 4
+    let secondRoll = 5
 
     override func setUp() {
         super.setUp()
         self.mockBowlingGame = MockBowlingGame()
-        self.sut = SpareRound(self.firstDelivery, self.secondDelivery, 0, bowlingGame: mockBowlingGame)
+        self.sut = SpareRound(self.firstRoll, self.secondRoll, 0, bowlingGame: mockBowlingGame)
     }
 
     override func tearDown() {
@@ -27,12 +27,12 @@ class SpareRoundTests: XCTestCase {
     func test_hasValidScore() {
         //Arrange
         let bonusScore = 5
-        self.mockBowlingGame.delivery = bonusScore
+        self.mockBowlingGame.roll = bonusScore
 
         //Act
         let score = self.sut.score
 
         //Assert
-        XCTAssertEqual(score, self.firstDelivery + self.secondDelivery + bonusScore, "Score should have matched total of firstDelivery, secondDelivey and bonusScore")
+        XCTAssertEqual(score, self.firstRoll + self.secondRoll + bonusScore, "Score should have matched total of firstRoll, secondDelivey and bonusScore")
     }
 }

@@ -9,33 +9,33 @@ class SpareRound: Round, Bonusable {
 
     //MARK: - Internal properties
 
-    let firstDelivery: Int
-    let secondDelivery: Int
+    let firstRoll: Int
+    let secondRoll: Int
 
     var score: Int {
-        self.firstDelivery + self.secondDelivery + self.bonusScore
+        self.firstRoll + self.secondRoll + self.bonusScore
     }
 
     var bonusScore: Int {
-        guard let delivery = self.bowlingGame?.deliveryAt(index:  self.roundDeliveryStartIndex + 2) else {
+        guard let roll = self.bowlingGame?.rollAt(index:  self.roundRollStartIndex + 2) else {
             assertionFailure("Could not calculate bonus score")
             return 0
         }
 
-        return delivery
+        return roll
     }
 
     //MARK: - Private properties
 
-    private let roundDeliveryStartIndex: Int
+    private let roundRollStartIndex: Int
     private weak var bowlingGame: BowlingGameProtocol?
 
     //MARK: - Initializer
 
-    init(_ firstDelivery: Int, _ secondDelivery: Int,_ roundDeliveryStartIndex: Int, bowlingGame: BowlingGameProtocol) {
-        self.roundDeliveryStartIndex = roundDeliveryStartIndex
-        self.firstDelivery = firstDelivery
-        self.secondDelivery = secondDelivery
+    init(_ firstRoll: Int, _ secondRoll: Int,_ roundRollStartIndex: Int, bowlingGame: BowlingGameProtocol) {
+        self.roundRollStartIndex = roundRollStartIndex
+        self.firstRoll = firstRoll
+        self.secondRoll = secondRoll
         self.bowlingGame = bowlingGame
     }
 }

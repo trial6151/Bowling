@@ -31,7 +31,7 @@ class BowlingGameTests: XCTestCase {
         XCTAssertTrue(finalScore >= 0, "Game should have valid score.")
     }
 
-    func test_whenPlayerDidNotScoreInAllDeliveriesOfGame_shouldReturnScore0() {
+    func test_whenPlayerDidNotScoreInAllRollsOfGame_shouldReturnScore0() {
         //Arrange
         self.makeNormalRounds(10, 0, 0)
 
@@ -105,67 +105,67 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(finalScore, 300, "Score of the game should have been matched with expected score.")
     }
 
-    func test_whenNormalRoundCalled_shouldMaintainDelivery() {
+    func test_whenNormalRoundCalled_shouldMaintainRoll() {
         //Arrange
-        let firstDelivery = 3
-        let secondDelivery = 4
+        let firstRoll = 3
+        let secondRoll = 4
 
         //Act
-        XCTAssertNil(self.sut.deliveryAt(index: 0), "Should have no stored delivery in the begining.")
-        self.sut.normalRound(firstDelivery, secondDelivery)
+        XCTAssertNil(self.sut.rollAt(index: 0), "Should have no stored roll in the begining.")
+        self.sut.normalRound(firstRoll, secondRoll)
 
         //Assert
-        let storedFirstDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 0))
-        XCTAssertEqual(firstDelivery, storedFirstDelivery, "Stored delivery should have matched with round's delivery")
+        let storedFirstRoll = try! XCTUnwrap(self.sut.rollAt(index: 0))
+        XCTAssertEqual(firstRoll, storedFirstRoll, "Stored roll should have matched with round's roll")
 
-        let storedSecondDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 1))
-        XCTAssertEqual(secondDelivery, storedSecondDelivery, "Stored delivery should have matched with round's delivery")
+        let storedSecondRoll = try! XCTUnwrap(self.sut.rollAt(index: 1))
+        XCTAssertEqual(secondRoll, storedSecondRoll, "Stored roll should have matched with round's roll")
     }
 
-    func test_whenSpareRoundCalled_shouldMaintainDelivery() {
+    func test_whenSpareRoundCalled_shouldMaintainRoll() {
         //Arrange
-        let firstDelivery = 3
-        let secondDelivery = 7
+        let firstRoll = 3
+        let secondRoll = 7
 
         //Act
-        XCTAssertNil(self.sut.deliveryAt(index: 0), "Should have no stored delivery in the begining.")
-        self.sut.spareRound(firstDelivery, secondDelivery)
+        XCTAssertNil(self.sut.rollAt(index: 0), "Should have no stored roll in the begining.")
+        self.sut.spareRound(firstRoll, secondRoll)
 
         //Assert
-        let storedFirstDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 0))
-        XCTAssertEqual(firstDelivery, storedFirstDelivery, "Stored delivery should have matched with round's delivery")
+        let storedFirstRoll = try! XCTUnwrap(self.sut.rollAt(index: 0))
+        XCTAssertEqual(firstRoll, storedFirstRoll, "Stored roll should have matched with round's roll")
 
-        let storedSecondDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 1))
-        XCTAssertEqual(secondDelivery, storedSecondDelivery, "Stored delivery should have matched with round's delivery")
+        let storedSecondRoll = try! XCTUnwrap(self.sut.rollAt(index: 1))
+        XCTAssertEqual(secondRoll, storedSecondRoll, "Stored roll should have matched with round's roll")
     }
 
-    func test_whenStrikeRoundCalled_shouldMaintainDelivery() {
+    func test_whenStrikeRoundCalled_shouldMaintainRoll() {
         //Arrange
 
         //Act
-        XCTAssertNil(self.sut.deliveryAt(index: 0), "Should have no stored delivery in the begining.")
+        XCTAssertNil(self.sut.rollAt(index: 0), "Should have no stored roll in the begining.")
         self.sut.strikeRound()
 
         //Assert
-        let storedFirstDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 0))
-        XCTAssertEqual(10, storedFirstDelivery, "Stored delivery should have matched with round's delivery")
+        let storedFirstRoll = try! XCTUnwrap(self.sut.rollAt(index: 0))
+        XCTAssertEqual(10, storedFirstRoll, "Stored roll should have matched with round's roll")
     }
 
-    func test_whenBonusRoundCalled_shouldMaintainDelivery() {
+    func test_whenBonusRoundCalled_shouldMaintainRoll() {
         //Arrange
-        let firstDelivery = 3
-        let secondDelivery = 7
+        let firstRoll = 3
+        let secondRoll = 7
 
         //Act
-        XCTAssertNil(self.sut.deliveryAt(index: 0), "Should have no stored delivery in the begining.")
-        self.sut.bonusRound(firstDelivery, secondDelivery)
+        XCTAssertNil(self.sut.rollAt(index: 0), "Should have no stored roll in the begining.")
+        self.sut.bonusRound(firstRoll, secondRoll)
 
         //Assert
-        let storedFirstDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 0))
-        XCTAssertEqual(firstDelivery, storedFirstDelivery, "Stored delivery should have matched with round's delivery")
+        let storedFirstRoll = try! XCTUnwrap(self.sut.rollAt(index: 0))
+        XCTAssertEqual(firstRoll, storedFirstRoll, "Stored roll should have matched with round's roll")
 
-        let storedSecondDelivery = try! XCTUnwrap(self.sut.deliveryAt(index: 1))
-        XCTAssertEqual(secondDelivery, storedSecondDelivery, "Stored delivery should have matched with round's delivery")
+        let storedSecondRoll = try! XCTUnwrap(self.sut.rollAt(index: 1))
+        XCTAssertEqual(secondRoll, storedSecondRoll, "Stored roll should have matched with round's roll")
     }
 
 }
@@ -174,15 +174,15 @@ class BowlingGameTests: XCTestCase {
 
 private extension BowlingGameTests {
 
-    func makeNormalRounds(_ count: Int,_ firstDelivery: Int,_ secondDelivery: Int) {
+    func makeNormalRounds(_ count: Int,_ firstRoll: Int,_ secondRoll: Int) {
         for _ in 0..<count {
-            self.sut.normalRound(firstDelivery, secondDelivery)
+            self.sut.normalRound(firstRoll, secondRoll)
         }
     }
 
-    func makeSpareRounds(_ count: Int,_ firstDelivery: Int,_ secondDelivery: Int) {
+    func makeSpareRounds(_ count: Int,_ firstRoll: Int,_ secondRoll: Int) {
         for _ in 0..<count {
-            self.sut.spareRound(firstDelivery, secondDelivery)
+            self.sut.spareRound(firstRoll, secondRoll)
         }
     }
 
