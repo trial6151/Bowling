@@ -22,6 +22,9 @@ class BowlingGame: BowlingGameProtocol {
     private var rounds = [Round]()
     private var rolls = [Int]()
 
+    private static let roundMaxScore = 10
+    private static let totalRounds = 10
+
     //MARK: - Internal methods
 
     func normalRound(_ firstRoll: Int,_ secondRoll: Int) {
@@ -48,6 +51,46 @@ class BowlingGame: BowlingGameProtocol {
         if let secondRoll = secondRoll {
             self.rolls.append(secondRoll)
         }
+    }
+
+    func getGamesFinalScore(rolls: [Int]) -> Int {
+        var firstRoll: Int? = nil
+        var roundCount = 0
+        var isLastRoundSpare = false
+
+        for roll in rolls {
+            if roundCount == BowlingGame.totalRounds {
+                if let first = firstRoll {
+                    self.bonusRound(first, roll)
+                    return self.finalScore
+                } else {
+                    firstRoll = roll
+                    guard isLastRoundSpare == true else { continue }
+                    self.bonusRound(roll, nil)
+                    return self.finalScore
+                }
+            }
+
+            if let first = firstRoll {
+                if first + roll == BowlingGame.roundMaxScore {
+                    self.spareRound(first, roll)
+                    isLastRoundSpare = roundCount == 9 ? true : false
+                } else {
+                    self.normalRound(first, roll)
+                }
+                roundCount += 1
+                firstRoll = nil
+            } else {
+                if roll == BowlingGame.roundMaxScore {
+                    self.strikeRound()
+                    roundCount += 1
+                    continue
+                }
+                firstRoll = roll
+                continue
+            }
+        }
+        return self.finalScore
     }
 
     func rollAt(index: Int) -> Int? {
