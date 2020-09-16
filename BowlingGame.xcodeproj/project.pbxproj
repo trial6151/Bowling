@@ -29,6 +29,7 @@
 		ED1D295B25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295A25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift */; };
 		ED1D295D25126280006CBC28 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D295C25126280006CBC28 /* HomeViewModel.swift */; };
 		ED1D29612512ACF3006CBC28 /* HomeViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D29602512ACF3006CBC28 /* HomeViewModelTestCase.swift */; };
+		ED1D29632512B66A006CBC28 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D29622512B669006CBC28 /* Factory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		ED1D295A25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		ED1D295C25126280006CBC28 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ED1D29602512ACF3006CBC28 /* HomeViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTestCase.swift; sourceTree = "<group>"; };
+		ED1D29622512B669006CBC28 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				ED1D2951251218D6006CBC28 /* BonusRound.swift */,
 				ED1D294025116485006CBC28 /* Round.swift */,
 				ED1D294A2511F4CE006CBC28 /* Bonusable.swift */,
+				ED1D29622512B669006CBC28 /* Factory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				ED1D290D2511342B006CBC28 /* AppDelegate.swift in Sources */,
 				ED1D295B25125F52006CBC28 /* ScoreCollectionViewCellViewModel.swift in Sources */,
 				ED1D294325116485006CBC28 /* Round.swift in Sources */,
+				ED1D29632512B66A006CBC28 /* Factory.swift in Sources */,
 				ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */,
 				ED1D290F2511342B006CBC28 /* SceneDelegate.swift in Sources */,
 				ED1D295D25126280006CBC28 /* HomeViewModel.swift in Sources */,

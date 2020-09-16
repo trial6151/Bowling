@@ -15,7 +15,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
     //MARK: - Private properties
 
-    private let homeViewModel = HomeViewModel(allowedScores: [0,1,2,3,4,5,6,7,8,9,10], bowlingGame: BowlingGame())
+    private let homeViewModel = HomeViewModel(allowedScores: Factory.createAllowedScores(),
+                                              bowlingGame: Factory.createBowlingGame())
 
     //MARK: - Life cycle methods
 
