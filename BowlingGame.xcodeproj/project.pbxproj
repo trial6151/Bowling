@@ -18,6 +18,10 @@
 		ED1D294325116485006CBC28 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294025116485006CBC28 /* Round.swift */; };
 		ED1D294425116485006CBC28 /* NormalRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294125116485006CBC28 /* NormalRound.swift */; };
 		ED1D294625116499006CBC28 /* NormalRoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294525116499006CBC28 /* NormalRoundTests.swift */; };
+		ED1D29492511F4B8006CBC28 /* SpareRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D29482511F4B8006CBC28 /* SpareRound.swift */; };
+		ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294A2511F4CE006CBC28 /* Bonusable.swift */; };
+		ED1D294E2511F5F5006CBC28 /* MockBowlingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */; };
+		ED1D29502511F61E006CBC28 /* SpareRoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		ED1D294025116485006CBC28 /* Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		ED1D294125116485006CBC28 /* NormalRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalRound.swift; sourceTree = "<group>"; };
 		ED1D294525116499006CBC28 /* NormalRoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalRoundTests.swift; sourceTree = "<group>"; };
+		ED1D29482511F4B8006CBC28 /* SpareRound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRound.swift; sourceTree = "<group>"; };
+		ED1D294A2511F4CE006CBC28 /* Bonusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonusable.swift; sourceTree = "<group>"; };
+		ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockBowlingGame.swift; sourceTree = "<group>"; };
+		ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpareRoundTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,8 @@
 				ED1D293F25116485006CBC28 /* BowlingGame.swift */,
 				ED1D294025116485006CBC28 /* Round.swift */,
 				ED1D294125116485006CBC28 /* NormalRound.swift */,
+				ED1D29482511F4B8006CBC28 /* SpareRound.swift */,
+				ED1D294A2511F4CE006CBC28 /* Bonusable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,10 +131,20 @@
 		ED1D2947251164D5006CBC28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED1D294C2511F5DE006CBC28 /* Mock */,
 				ED1D29232511342D006CBC28 /* BowlingGameTests.swift */,
 				ED1D294525116499006CBC28 /* NormalRoundTests.swift */,
+				ED1D294F2511F61E006CBC28 /* SpareRoundTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ED1D294C2511F5DE006CBC28 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				ED1D294D2511F5F5006CBC28 /* MockBowlingGame.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED1D29492511F4B8006CBC28 /* SpareRound.swift in Sources */,
 				ED1D294225116485006CBC28 /* BowlingGame.swift in Sources */,
 				ED1D29112511342B006CBC28 /* ViewController.swift in Sources */,
 				ED1D290D2511342B006CBC28 /* AppDelegate.swift in Sources */,
 				ED1D294325116485006CBC28 /* Round.swift in Sources */,
+				ED1D294B2511F4CE006CBC28 /* Bonusable.swift in Sources */,
 				ED1D290F2511342B006CBC28 /* SceneDelegate.swift in Sources */,
 				ED1D294425116485006CBC28 /* NormalRound.swift in Sources */,
 			);
@@ -242,6 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED1D29242511342D006CBC28 /* BowlingGameTests.swift in Sources */,
+				ED1D294E2511F5F5006CBC28 /* MockBowlingGame.swift in Sources */,
+				ED1D29502511F61E006CBC28 /* SpareRoundTests.swift in Sources */,
 				ED1D294625116499006CBC28 /* NormalRoundTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,7 +5,11 @@
 
 import Foundation
 
-class BowlingGame {
+protocol BowlingGameProtocol: class {
+    func deliveryAt(index: Int) -> Int?
+}
+
+class BowlingGame: BowlingGameProtocol {
 
     //MARK: - Internal properties
 
@@ -16,10 +20,26 @@ class BowlingGame {
     //MARK: - Private properties
 
     private var rounds = [Round]()
+    private var deliveries = [Int]()
 
     //MARK: - Internal methods
 
     func normalRound(_ firstDelivery: Int,_ secondDelivery: Int) {
         self.rounds.append(NormalRound(firstDelivery, secondDelivery))
+        self.deliveries.append(firstDelivery)
+        self.deliveries.append(secondDelivery)
+    }
+
+    func spareRound(_ firstDelivery: Int,_ secondDelivery: Int) {
+        self.rounds.append(SpareRound(firstDelivery, secondDelivery, self.deliveries.count, bowlingGame: self))
+        self.deliveries.append(firstDelivery)
+        self.deliveries.append(secondDelivery)
+    }
+
+    func deliveryAt(index: Int) -> Int? {
+        guard self.deliveries.indices.contains(index) else {
+            return nil
+        }
+        return self.deliveries[index]
     }
 }
