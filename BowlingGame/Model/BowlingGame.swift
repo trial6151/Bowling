@@ -99,4 +99,11 @@ class BowlingGame: BowlingGameProtocol {
         }
         return self.rolls[index]
     }
+
+    @discardableResult
+    func resetGame() -> Bool {
+        self.rounds.removeAll()
+        self.rolls.removeAll()
+        return self.rounds.isEmpty && self.rolls.isEmpty ? true : false
+    }
 }
