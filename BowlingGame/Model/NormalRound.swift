@@ -9,13 +9,14 @@ class NormalRound: Round {
 
     //MARK: - Internal properties
 
+    let firstRoll: Int
+
     var score: Int {
         self.firstRoll + self.secondRoll
     }
 
     //MARK: - Private properties
 
-    private let firstRoll: Int
     private let secondRoll: Int
 
     //MARK: - Initializer

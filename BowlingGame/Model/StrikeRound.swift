@@ -11,6 +11,8 @@ class StrikeRound: Round, Bonusable {
 
     static let strikeDefaultScore = 10
 
+    let firstRoll: Int
+    
     var score: Int {
         self.firstRoll + self.bonusScore
     }
@@ -35,7 +37,6 @@ class StrikeRound: Round, Bonusable {
 
     //MARK: - Private properties
 
-    private let firstRoll: Int
     private let roundRollStartIndex: Int
     private weak var bowlingGame: BowlingGameProtocol?
 

@@ -7,9 +7,12 @@ import Foundation
 
 class BonusRound: Round {
 
+    //MARK: - Internal properties
+
+    let firstRoll: Int
+
     //MARK: - Private properties
 
-    private let firstRoll: Int
     private let secondRoll: Int?
 
     //MARK: - Initializer

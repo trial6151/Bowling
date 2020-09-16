@@ -7,6 +7,7 @@ import Foundation
 
 protocol Round {
     var score: Int { get }
+    var firstRoll: Int { get }
 }
 
 extension Round {

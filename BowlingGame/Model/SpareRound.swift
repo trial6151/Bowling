@@ -10,7 +10,6 @@ class SpareRound: Round, Bonusable {
     //MARK: - Internal properties
 
     let firstRoll: Int
-    let secondRoll: Int
 
     var score: Int {
         self.firstRoll + self.secondRoll + self.bonusScore
@@ -26,7 +25,7 @@ class SpareRound: Round, Bonusable {
     }
 
     //MARK: - Private properties
-
+    private let secondRoll: Int
     private let roundRollStartIndex: Int
     private weak var bowlingGame: BowlingGameProtocol?
 
