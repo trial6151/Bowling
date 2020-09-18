@@ -6,7 +6,6 @@
 import Foundation
 
 protocol BowlingGameProtocol: class {
-    var finalScore: Int { get }
     func normalRound(_ firstRoll: Int,_ secondRoll: Int)
     func spareRound(_ firstRoll: Int,_ secondRoll: Int)
     func strikeRound()
@@ -19,7 +18,7 @@ class BowlingGame: BowlingGameProtocol {
 
     //MARK: - Internal properties
 
-    var finalScore: Int {
+    private var finalScore: Int {
         self.rounds.map{ $0.score }.reduce(0, +)
     }
 
