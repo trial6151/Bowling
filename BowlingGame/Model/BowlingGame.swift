@@ -6,23 +6,20 @@
 import Foundation
 
 protocol BowlingGameProtocol: class {
-    func normalRound(_ firstRoll: Int,_ secondRoll: Int)
-    func spareRound(_ firstRoll: Int,_ secondRoll: Int)
-    func strikeRound()
-    func bonusRound(_ firstRoll: Int,_ secondRoll: Int?)
-    func getGamesFinalScore(rolls: [Int]) -> Int
+    func getGamesFinalScore(rolls: [Int]) throws -> Int
     func rollAt(index: Int) -> Int?
 }
 
+enum BowlingError: Error {
+    case wrongNumberOfRounds
+}
 class BowlingGame: BowlingGameProtocol {
 
-    //MARK: - Internal properties
+    //MARK: - Private properties
 
     private var finalScore: Int {
         self.rounds.map{ $0.score }.reduce(0, +)
     }
-
-    //MARK: - Private properties
 
     private var rounds = [Round]()
     private var rolls = [Int]()
@@ -32,35 +29,13 @@ class BowlingGame: BowlingGameProtocol {
 
     //MARK: - Internal methods
 
-    func normalRound(_ firstRoll: Int,_ secondRoll: Int) {
-        self.rounds.append(NormalRound(firstRoll, secondRoll))
-        self.rolls.append(firstRoll)
-        self.rolls.append(secondRoll)
-    }
-
-    func spareRound(_ firstRoll: Int,_ secondRoll: Int) {
-        self.rounds.append(SpareRound(firstRoll, secondRoll, self.rolls.count, bowlingGame: self))
-        self.rolls.append(firstRoll)
-        self.rolls.append(secondRoll)
-    }
-
-    func strikeRound() {
-        self.rounds.append(StrikeRound(self.rolls.count, bowlingGame: self))
-        self.rolls.append(StrikeRound.strikeDefaultScore)
-    }
-
-    func bonusRound(_ firstRoll: Int,_ secondRoll: Int?) {
-        self.rounds.append(BonusRound(firstRoll, secondRoll))
-        self.rolls.append(firstRoll)
-
-        if let secondRoll = secondRoll {
-            self.rolls.append(secondRoll)
-        }
-    }
-
-    func getGamesFinalScore(rolls: [Int]) -> Int {
+    func getGamesFinalScore(rolls: [Int]) throws -> Int {
         defer {
             self.resetGame()
+        }
+
+        guard self.isValidNumberOf(rolls: rolls) else {
+            throw BowlingError.wrongNumberOfRounds
         }
 
         var firstRoll: Int? = nil
@@ -88,6 +63,10 @@ class BowlingGame: BowlingGameProtocol {
             }
         }
 
+        if roundCount < 10 {
+            throw BowlingError.wrongNumberOfRounds
+        }
+
         return self.finalScore
     }
 
@@ -101,12 +80,38 @@ class BowlingGame: BowlingGameProtocol {
 
 private extension BowlingGame {
 
-    private func resetGame() {
+    func normalRound(_ firstRoll: Int,_ secondRoll: Int) {
+        self.rounds.append(NormalRound(firstRoll, secondRoll))
+        self.rolls.append(firstRoll)
+        self.rolls.append(secondRoll)
+    }
+
+    func spareRound(_ firstRoll: Int,_ secondRoll: Int) {
+        self.rounds.append(SpareRound(firstRoll, secondRoll, self.rolls.count, bowlingGame: self))
+        self.rolls.append(firstRoll)
+        self.rolls.append(secondRoll)
+    }
+
+    func strikeRound() {
+        self.rounds.append(StrikeRound(self.rolls.count, bowlingGame: self))
+        self.rolls.append(StrikeRound.strikeDefaultScore)
+    }
+
+    func bonusRound(_ firstRoll: Int,_ secondRoll: Int?) {
+        self.rounds.append(BonusRound(firstRoll, secondRoll))
+        self.rolls.append(firstRoll)
+
+        if let secondRoll = secondRoll {
+            self.rolls.append(secondRoll)
+        }
+    }
+
+    func resetGame() {
         self.rounds.removeAll()
         self.rolls.removeAll()
     }
 
-    private func addStrikeRound(roll: Int, firstRoll: inout Int?, roundCount: inout Int) {
+    func addStrikeRound(roll: Int, firstRoll: inout Int?, roundCount: inout Int) {
         if roll == BowlingGame.roundMaxScore {
             self.strikeRound()
             roundCount += 1
@@ -115,7 +120,7 @@ private extension BowlingGame {
         firstRoll = roll
     }
 
-    private func addBonusRoundAndGetScore(roll: Int, firstRoll: inout Int?, isLastRoundSpare: Bool) -> Int? {
+    func addBonusRoundAndGetScore(roll: Int, firstRoll: inout Int?, isLastRoundSpare: Bool) -> Int? {
         if let first = firstRoll {
             self.bonusRound(first, roll)
             return self.finalScore
@@ -127,7 +132,7 @@ private extension BowlingGame {
         }
     }
 
-    private func addNormalAndSpareRound(roll: Int,
+    func addNormalAndSpareRound(roll: Int,
                                         firstRoll: inout Int?,
                                         isLastRoundSpare: inout Bool,
                                         roundCount: inout Int) {
@@ -146,4 +151,7 @@ private extension BowlingGame {
         firstRoll = nil
     }
 
+    func isValidNumberOf(rolls: [Int]) -> Bool {
+        rolls.count > 11 && rolls.count < 22
+    }
 }

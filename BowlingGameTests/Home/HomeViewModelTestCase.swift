@@ -28,7 +28,7 @@ class HomeViewModelTestCase: XCTestCase {
         //Arrange
 
         //Act
-        let finalScore = self.sut.finalScore
+        let finalScore = try! self.sut.getFinalScore()
 
         //Assert
         XCTAssertEqual(finalScore, "0")

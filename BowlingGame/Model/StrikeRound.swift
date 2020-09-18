@@ -22,7 +22,6 @@ class StrikeRound: Round, Bonusable {
 
         for index in 1...self.numberOfRollsToCalculateBonus {
             guard let roll = self.bowlingGame?.rollAt(index: self.roundRollStartIndex + index) else {
-                assertionFailure("Could not calculate bonus score")
                 return 0
             }
 

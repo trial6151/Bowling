@@ -20,10 +20,6 @@ class HomeViewModel: NSObject {
         }
     }
 
-    var finalScore: String {
-        String(self.bowlingGame.getGamesFinalScore(rolls: self.rolls))
-    }
-
     var rolls = [Int]()
 
     //MARK: - Private properties
@@ -39,6 +35,11 @@ class HomeViewModel: NSObject {
     }
 
     //MARK: - Internal methods
+
+    func getFinalScore() throws -> String {
+        let finalScore = try self.bowlingGame.getGamesFinalScore(rolls: self.rolls)
+        return String(finalScore)
+    }
 
     func resetGame() {
         self.rolls.removeAll()

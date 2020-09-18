@@ -17,7 +17,6 @@ class SpareRound: Round, Bonusable {
 
     var bonusScore: Int {
         guard let roll = self.bowlingGame?.rollAt(index:  self.roundRollStartIndex + 2) else {
-            assertionFailure("Could not calculate bonus score")
             return 0
         }
 

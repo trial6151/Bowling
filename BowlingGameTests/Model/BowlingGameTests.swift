@@ -24,7 +24,7 @@ class BowlingGameTests: XCTestCase {
         //Arrange
 
         //Act
-        let finalScore = self.sut.getGamesFinalScore(rolls: [4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5])
+        let finalScore = try! self.sut.getGamesFinalScore(rolls: [4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5,4,5])
 
         //Assert
         XCTAssertEqual(finalScore, 90, "Score should have matched")
@@ -34,7 +34,7 @@ class BowlingGameTests: XCTestCase {
         //Arrange
 
         //Act
-        let finalScore = self.sut.getGamesFinalScore(rolls: [10,10,10,10,10,10,10,10,10,10,10,10])
+        let finalScore = try! self.sut.getGamesFinalScore(rolls: [10,10,10,10,10,10,10,10,10,10,10,10])
 
         //Assert
         XCTAssertEqual(finalScore, 300, "Score should have matched")
@@ -44,7 +44,7 @@ class BowlingGameTests: XCTestCase {
         //Arrange
 
         //Act
-        let finalScore = self.sut.getGamesFinalScore(rolls: [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5])
+        let finalScore = try! self.sut.getGamesFinalScore(rolls: [5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5])
 
         //Assert
         XCTAssertEqual(finalScore, 150, "Score should have matched")
