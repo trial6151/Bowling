@@ -24,10 +24,6 @@ class MockBowlingGame: BowlingGameProtocol {
         self.finalScore
     }
 
-    func resetGame() -> Bool {
-        true
-    }
-
     func rollAt(index: Int) -> Int? {
         self.roll
     }

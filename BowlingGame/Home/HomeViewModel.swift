@@ -42,7 +42,6 @@ class HomeViewModel: NSObject {
 
     func resetGame() {
         self.rolls.removeAll()
-        self.bowlingGame.resetGame()
     }
 
 }

@@ -198,16 +198,6 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(finalScore, 150, "Score should have matched")
     }
 
-    func test_whenResetGameCalled_shouldResetSuccessfully() {
-        //Arrange
-
-        //Act
-        let isResetSuccessful = self.sut.resetGame()
-
-        //Assert
-        XCTAssertTrue(isResetSuccessful, "Should have reset game successfully but it did not reset.")
-    }
-
 }
 
 //MARK:- Stub helpers

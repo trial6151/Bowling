@@ -13,7 +13,6 @@ protocol BowlingGameProtocol: class {
     func bonusRound(_ firstRoll: Int,_ secondRoll: Int?)
     func getGamesFinalScore(rolls: [Int]) -> Int
     func rollAt(index: Int) -> Int?
-    @discardableResult func resetGame() -> Bool
 }
 
 class BowlingGame: BowlingGameProtocol {
@@ -61,6 +60,10 @@ class BowlingGame: BowlingGameProtocol {
     }
 
     func getGamesFinalScore(rolls: [Int]) -> Int {
+        defer {
+            self.resetGame()
+        }
+
         var firstRoll: Int? = nil
         var roundCount = 0
         var isLastRoundSpare = false
@@ -95,16 +98,14 @@ class BowlingGame: BowlingGameProtocol {
         }
         return self.rolls[index]
     }
-
-    @discardableResult
-    func resetGame() -> Bool {
-        self.rounds.removeAll()
-        self.rolls.removeAll()
-        return self.rounds.isEmpty && self.rolls.isEmpty ? true : false
-    }
 }
 
 private extension BowlingGame {
+
+    private func resetGame() {
+        self.rounds.removeAll()
+        self.rolls.removeAll()
+    }
 
     private func addStrikeRound(roll: Int, firstRoll: inout Int?, roundCount: inout Int) {
         if roll == BowlingGame.roundMaxScore {
