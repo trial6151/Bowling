@@ -67,36 +67,25 @@ class BowlingGame: BowlingGameProtocol {
 
         for roll in rolls {
             if roundCount == BowlingGame.totalRounds {
-                if let first = firstRoll {
-                    self.bonusRound(first, roll)
-                    return self.finalScore
-                } else {
-                    firstRoll = roll
-                    guard isLastRoundSpare == true else { continue }
-                    self.bonusRound(roll, nil)
-                    return self.finalScore
+                if let score = self.addBonusRoundAndGetScore(roll: roll,
+                                                                firstRoll: &firstRoll,
+                                                                isLastRoundSpare: isLastRoundSpare) {
+                        return score
                 }
+                continue
             }
 
-            if let first = firstRoll {
-                if first + roll == BowlingGame.roundMaxScore {
-                    self.spareRound(first, roll)
-                    isLastRoundSpare = roundCount == 9 ? true : false
-                } else {
-                    self.normalRound(first, roll)
-                }
-                roundCount += 1
-                firstRoll = nil
+            if firstRoll != nil {
+                self.addNormalAndSpareRound(roll: roll,
+                                            firstRoll: &firstRoll,
+                                            isLastRoundSpare: &isLastRoundSpare,
+                                            roundCount: &roundCount)
             } else {
-                if roll == BowlingGame.roundMaxScore {
-                    self.strikeRound()
-                    roundCount += 1
-                    continue
-                }
-                firstRoll = roll
+                self.addStrikeRound(roll: roll, firstRoll: &firstRoll, roundCount: &roundCount)
                 continue
             }
         }
+
         return self.finalScore
     }
 
@@ -113,4 +102,48 @@ class BowlingGame: BowlingGameProtocol {
         self.rolls.removeAll()
         return self.rounds.isEmpty && self.rolls.isEmpty ? true : false
     }
+}
+
+private extension BowlingGame {
+
+    private func addStrikeRound(roll: Int, firstRoll: inout Int?, roundCount: inout Int) {
+        if roll == BowlingGame.roundMaxScore {
+            self.strikeRound()
+            roundCount += 1
+            return
+        }
+        firstRoll = roll
+    }
+
+    private func addBonusRoundAndGetScore(roll: Int, firstRoll: inout Int?, isLastRoundSpare: Bool) -> Int? {
+        if let first = firstRoll {
+            self.bonusRound(first, roll)
+            return self.finalScore
+        } else {
+            firstRoll = roll
+            guard isLastRoundSpare else { return nil }
+            self.bonusRound(roll, nil)
+            return self.finalScore
+        }
+    }
+
+    private func addNormalAndSpareRound(roll: Int,
+                                        firstRoll: inout Int?,
+                                        isLastRoundSpare: inout Bool,
+                                        roundCount: inout Int) {
+
+        guard let first = firstRoll else {
+            return
+        }
+
+        if first + roll == BowlingGame.roundMaxScore {
+            self.spareRound(first, roll)
+            isLastRoundSpare = roundCount == 9
+        } else {
+            self.normalRound(first, roll)
+        }
+        roundCount += 1
+        firstRoll = nil
+    }
+
 }
