@@ -20,6 +20,14 @@ class HomeViewModel: NSObject {
         }
     }
 
+    var alertMessage: String {
+        "You may have entered wrong number of frames. Please reset game and try again."
+    }
+
+    var rollSequenceInitialMessage: String {
+        "Rolls will be displayed here"
+    }
+    
     var rolls = [Int]()
 
     //MARK: - Private properties
@@ -45,21 +53,4 @@ class HomeViewModel: NSObject {
         self.rolls.removeAll()
     }
 
-}
-
-//MARK: - UICollectionViewDataSource methods
-
-extension HomeViewModel: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.scoreCollectionViewCellViewModels.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScoreCollectionViewCell", for: indexPath) as? ScoreCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-
-        cell.configure(vm: self.scoreCollectionViewCellViewModels[indexPath.row])
-        return cell
-    }
 }
