@@ -45,4 +45,16 @@ class HomeViewModelTestCase: XCTestCase {
         XCTAssertEqual(rollsSequenceString, "1, 2, 3", "Score sequence should have matched.")
     }
 
+    func test_whenResetGameCalled_shouldRemovePreviousGameData() {
+        //Arrange
+        self.sut.rolls = [1,2,3]
+
+        //Act
+        self.sut.resetGame()
+
+        //Assert
+        XCTAssertTrue(self.sut.rolls.isEmpty, "Previous game rolls should have been deleted.")
+
+    }
+
 }

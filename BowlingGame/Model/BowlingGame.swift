@@ -46,8 +46,8 @@ class BowlingGame: BowlingGameProtocol {
         var isLastRoundSpare = false
 
         for roll in rolls {
-            if roundCount == BowlingGame.totalRounds {
-                if let score = self.addBonusRoundAndGetScore(roll: roll,
+            if isLastRoundCompleted(roundCount) {
+                if let score = self.addBonusRoundIfNeededAndGetScore(roll: roll,
                                                                 firstRoll: &firstRoll,
                                                                 isLastRoundSpare: isLastRoundSpare) {
                         return score
@@ -129,7 +129,7 @@ private extension BowlingGame {
         firstRoll = roll
     }
 
-    func addBonusRoundAndGetScore(roll: Int, firstRoll: inout Int?, isLastRoundSpare: Bool) -> Int? {
+    func addBonusRoundIfNeededAndGetScore(roll: Int, firstRoll: inout Int?, isLastRoundSpare: Bool) -> Int? {
         if let first = firstRoll {
             self.bonusRound(first, roll)
             return self.finalScore
@@ -150,7 +150,7 @@ private extension BowlingGame {
             return
         }
 
-        if first + roll == BowlingGame.roundMaxScore {
+        if isSpareRound(first, roll) {
             self.spareRound(first, roll)
             isLastRoundSpare = roundCount == 9
         } else {
@@ -158,6 +158,14 @@ private extension BowlingGame {
         }
         roundCount += 1
         firstRoll = nil
+    }
+
+    func isSpareRound(_ first: Int, _ roll: Int) -> Bool {
+        return first + roll == BowlingGame.roundMaxScore
+    }
+
+    func isLastRoundCompleted(_ roundCount: Int) -> Bool {
+        return roundCount == BowlingGame.totalRounds
     }
 
     //MARK: - Helper for basic validation
