@@ -13,6 +13,7 @@ protocol BowlingGameProtocol: class {
 enum BowlingError: Error {
     case wrongNumberOfRounds
 }
+
 class BowlingGame: BowlingGameProtocol {
 
     //MARK: - Private properties
@@ -26,6 +27,8 @@ class BowlingGame: BowlingGameProtocol {
 
     private static let roundMaxScore = 10
     private static let totalRounds = 10
+    private static let minimumRolls = 12
+    private static let maximumRolls = 21
 
     //MARK: - Internal methods
 
@@ -63,7 +66,7 @@ class BowlingGame: BowlingGameProtocol {
             }
         }
 
-        if roundCount < 10 {
+        if roundCount < BowlingGame.totalRounds {
             throw BowlingError.wrongNumberOfRounds
         }
 
@@ -78,7 +81,11 @@ class BowlingGame: BowlingGameProtocol {
     }
 }
 
+//MARK: - Private methods
+
 private extension BowlingGame {
+
+    //MARK: - Helpers to maintain rolls and rounds
 
     func normalRound(_ firstRoll: Int,_ secondRoll: Int) {
         self.rounds.append(NormalRound(firstRoll, secondRoll))
@@ -110,6 +117,8 @@ private extension BowlingGame {
         self.rounds.removeAll()
         self.rolls.removeAll()
     }
+
+    //MARK: - Helpers to create game sequence
 
     func addStrikeRound(roll: Int, firstRoll: inout Int?, roundCount: inout Int) {
         if roll == BowlingGame.roundMaxScore {
@@ -151,7 +160,9 @@ private extension BowlingGame {
         firstRoll = nil
     }
 
+    //MARK: - Helper for basic validation
+
     func isValidNumberOf(rolls: [Int]) -> Bool {
-        rolls.count > 11 && rolls.count < 22
+        BowlingGame.minimumRolls <= rolls.count && rolls.count <= BowlingGame.maximumRolls
     }
 }
